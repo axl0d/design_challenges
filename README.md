@@ -1,6 +1,12 @@
 # design_challenges
 
-A new Flutter project.
+A new Flutter project where challenge to my skills about mockup.
+
+_**All credits to creators them by assets and designs**_
+
+Food Nutrition App Challenge by: [Raka Maulana Akbar](https://www.uplabs.com/rakamaulanaakbar96)
+
+![nutrition.png](screenshots/nutrition.png)
 
 ## Getting Started
 
