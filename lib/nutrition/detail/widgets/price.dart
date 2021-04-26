@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Price extends StatelessWidget {
+  const Price({Key? key, required this.price}) : super(key: key);
+
+  final double price;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +24,7 @@ class Price extends StatelessWidget {
             ),
             children: [
               TextSpan(
-                text: '3,50',
+                text: '$price',
                 style: GoogleFonts.rubik(
                   textStyle: TextStyle(
                     fontSize: 24,

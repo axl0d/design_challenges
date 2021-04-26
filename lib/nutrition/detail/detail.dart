@@ -1,8 +1,16 @@
 import 'package:design_challenges/nutrition/detail/widgets/widgets.dart';
+import 'package:design_challenges/nutrition/models/dish.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailPage extends StatelessWidget {
+  const DetailPage({
+    Key? key,
+    required this.dish,
+  }) : super(key: key);
+
+  final Dish dish;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,8 +20,14 @@ class DetailPage extends StatelessWidget {
         elevation: 0,
         leading: Padding(
           padding: const EdgeInsets.only(left: 20),
-          child: Image.asset(
-            'assets/nutrition/arrow_left.png',
+          child: IconButton(
+            icon: Image.asset(
+              'assets/nutrition/arrow_left.png',
+              fit: BoxFit.cover,
+              width: 24,
+              height: 24,
+            ),
+            onPressed: () => Navigator.pop(context),
           ),
         ),
         title: Text(
@@ -42,7 +56,11 @@ class DetailPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.68,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Color(0xFFFFE3E3),
+                color: Color(
+                  int.parse(
+                    '0xff' + dish.color,
+                  ),
+                ),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(80),
                   topRight: Radius.circular(80),
@@ -68,7 +86,7 @@ class DetailPage extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5),
                               child: Text(
-                                'Fruit Soup',
+                                dish.name,
                                 style: GoogleFonts.rubik(
                                   textStyle: TextStyle(
                                     fontSize: 24,
@@ -86,7 +104,7 @@ class DetailPage extends StatelessWidget {
                                 ),
                                 RichText(
                                   text: TextSpan(
-                                    text: '4.5 ',
+                                    text: '${dish.rating} ',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.black,
@@ -107,7 +125,7 @@ class DetailPage extends StatelessWidget {
                           ],
                         ),
                         Image.asset(
-                          'assets/nutrition/heart_fill.png',
+                          'assets/nutrition/${dish.isLike ? 'heart_fill.png' : 'heart.png'}',
                           fit: BoxFit.fill,
                           width: 40,
                           height: 40,
@@ -139,7 +157,9 @@ class DetailPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Price(),
+                        Price(
+                          price: dish.price,
+                        ),
                         BuyButton(),
                       ],
                     ),

@@ -1,3 +1,4 @@
+import 'package:design_challenges/nutrition/detail/detail.dart';
 import 'package:design_challenges/nutrition/models/dish.dart' as models;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,39 +13,49 @@ class Dish extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      color: Color(
-        int.parse(
-          '0xff' + dish.color,
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DetailPage(
+            dish: dish,
+          ),
         ),
       ),
-      child: Stack(
-        children: [
-          Column(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Image.asset(
-                  'assets/nutrition/${dish.image}',
-                  width: MediaQuery.of(context).size.width,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              _Body(
-                name: dish.name,
-                price: dish.price,
-                isLike: dish.isLike,
-              )
-            ],
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        color: Color(
+          int.parse(
+            '0xff' + dish.color,
           ),
-          _Rating(
-            rating: dish.rating,
-          )
-        ],
+        ),
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Image.asset(
+                    'assets/nutrition/${dish.image}',
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                _Body(
+                  name: dish.name,
+                  price: dish.price,
+                  isLike: dish.isLike,
+                )
+              ],
+            ),
+            _Rating(
+              rating: dish.rating,
+            )
+          ],
+        ),
       ),
     );
   }
