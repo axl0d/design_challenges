@@ -1,5 +1,5 @@
+import 'package:design_challenges/nutrition/home/widgets/widgets.dart';
 import 'package:design_challenges/nutrition/models/dish.dart' as models;
-import 'package:design_challenges/nutrition/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
