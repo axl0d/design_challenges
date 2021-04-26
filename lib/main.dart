@@ -1,3 +1,4 @@
+import 'package:design_challenges/nutrition/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: DetailPage(),
+      home: HomePage(),
     );
   }
 }

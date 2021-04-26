@@ -88,7 +88,7 @@ class _Body extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '$price',
+                  '\$$price',
                   style: GoogleFonts.rubik(
                     textStyle: TextStyle(
                       fontSize: 14,
